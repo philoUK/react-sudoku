@@ -1,0 +1,54 @@
+.score-panel {
+  border: dashed blue 2px;
+  font-weight: bold;
+  font-size: 14pt;
+  background-color: whitesmoke;
+  text-align: center;
+  font-family: monospace;
+  color: indigo;
+}
+
+.score-panel span {
+  font-size: larger;
+  color: red;
+}
+
+.sudoku-square {
+  height: 65px;
+  width: 65px;
+  background-color: whitesmoke;
+  font-size: 36pt;
+  font: bold;
+  font-family: monospace;
+  text-align: center;
+  padding-top: 5px;
+  margin-left: 1px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+.selectable:hover {
+  background-color: yellow;
+  color: grey;
+}
+
+.selected {
+  background-color: red;
+  color: white;
+}
+
+.oh-no {
+  background-color: crimson;
+  color: white;
+  font-size: xx-large;
+  font-family: monospace;
+  text-align: center;
+}
+
+.hint {
+  background-color: green;
+  color: white;
+  font-size: xx-large;
+  font-family: monospace;
+  text-align: center;
+}
