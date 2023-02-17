@@ -145,6 +145,8 @@ export function Game() {
         <FixedSudokuSquare
           value={getCellValue(cell) as number}
           key={makeKey(cell)}
+          applyRightBorder={cell.position.col === 3 || cell.position.col === 6}
+          applyBottomBorder={cell.position.row === 3 || cell.position.row === 6}
         />
       );
     }
@@ -155,6 +157,8 @@ export function Game() {
         selected={isSelected(cell.position)}
         key={makeKey(cell)}
         onClick={onCellSelected}
+        applyRightBorder={cell.position.col === 3 || cell.position.col === 6}
+        applyBottomBorder={cell.position.row === 3 || cell.position.row === 6}
       />
     );
   }
@@ -165,7 +169,7 @@ export function Game() {
       {hintRequested && <div className="hint">{hint}</div>}
       <div
         style={{
-          maxWidth: "601px",
+          maxWidth: "475px",
           background: "black",
           margin: "0 auto",
           display: "grid",

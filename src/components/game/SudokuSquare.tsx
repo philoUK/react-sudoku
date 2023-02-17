@@ -6,6 +6,8 @@ type SudokuSquareProps = {
   value?: number;
   onClick: (position: Coordinates) => void;
   selected: boolean;
+  applyRightBorder: boolean;
+  applyBottomBorder: boolean;
 };
 
 export function SudokuSquare({
@@ -13,8 +15,14 @@ export function SudokuSquare({
   value,
   onClick,
   selected,
+  applyRightBorder,
+  applyBottomBorder,
 }: SudokuSquareProps) {
-  const className = `sudoku-square ${selected ? "selected" : "selectable"}`;
+  const className = `sudoku-square playable ${
+    applyRightBorder ? "grid-col-boundary" : ""
+  } ${applyBottomBorder ? "grid-row-boundary" : ""} ${
+    selected ? "selected" : "selectable"
+  }`;
   return (
     <div className={className} onClick={() => onClick(position)}>
       {value}
