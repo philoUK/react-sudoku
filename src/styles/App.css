@@ -14,8 +14,8 @@
 }
 
 .sudoku-square {
-  height: 65px;
-  width: 65px;
+  height: 50px;
+  width: 50px;
   background-color: whitesmoke;
   font-size: 36pt;
   font: bold;
@@ -27,9 +27,17 @@
   margin-top: 1px;
 }
 
+.playable {
+  color: royalblue;
+}
+
+.fixed {
+  color: darkgrey;
+}
+
 .selectable:hover {
   background-color: yellow;
-  color: grey;
+  color: blue;
 }
 
 .selected {
@@ -51,4 +59,12 @@
   font-size: xx-large;
   font-family: monospace;
   text-align: center;
+}
+
+.grid-col-boundary {
+  margin-right: 3px;
+}
+
+.grid-row-boundary {
+  margin-bottom: 3px;
 }
