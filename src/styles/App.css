@@ -61,6 +61,15 @@
   text-align: center;
 }
 
+.won {
+  background-color: green;
+  color: wheat;
+  font-size: xx-large;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+}
+
 .grid-col-boundary {
   margin-right: 3px;
 }
