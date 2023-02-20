@@ -133,6 +133,14 @@ export function play(
     }
     return c;
   });
+  // detect a win
+  if (newStatus === "valid-move") {
+    const hasEmptyCells =
+      newCells.filter((c) => c.contents.contentType === "empty").length > 0;
+    if (!hasEmptyCells) {
+      newStatus = "won";
+    }
+  }
   return { status: newStatus, game: newCells };
 }
 

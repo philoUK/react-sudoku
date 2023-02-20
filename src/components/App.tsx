@@ -9,6 +9,11 @@ function App() {
   const [gamesWon, setGamesWon] = useState(0);
   const [gamesLost, setGamesLost] = useState(0);
 
+  const onWon = () => {
+    setGamesPlayed(gamesPlayed + 1);
+    setGamesWon(gamesWon + 1);
+  };
+
   return (
     <div className="App">
       <div
@@ -19,7 +24,7 @@ function App() {
           gamesWon={gamesWon}
           gamesLost={gamesLost}
         />
-        <Game />
+        <Game onWon={onWon} />
       </div>
     </div>
   );

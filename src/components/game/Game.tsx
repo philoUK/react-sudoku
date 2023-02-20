@@ -17,7 +17,11 @@ function makePreset(col: number, row: number, val: number): PresetPlaceholder {
   return { position: { col: col, row: row }, value: val };
 }
 
-export function Game() {
+type GameProps = {
+  onWon: () => void;
+};
+
+export function Game({ onWon }: GameProps) {
   const [game, updateGame] = useState<Cell[]>(
     makeGame([
       makePreset(3, 1, 2),
@@ -56,7 +60,16 @@ export function Game() {
 
   const [hintRequested, setHintRequested] = useState<boolean>(false);
 
-  const [hint, setHit] = useState<number[] | undefined>();
+  const [hint, setHint] = useState<number[] | undefined>();
+
+  const [won, setWon] = useState<boolean>(false);
+
+  const showWin = (hasWon: boolean) => {
+    setWon(hasWon);
+    if (hasWon) {
+      onWon();
+    }
+  };
 
   function onKeyPress(e: KeyboardEvent) {
     const key = e.key;
@@ -71,7 +84,8 @@ export function Game() {
     updateGame(newGame.game);
     setValidMove(newGame.status !== "invalid-move");
     setHintRequested(newGame.status === "show-hint");
-    setHit(newGame.hint);
+    showWin(newGame.status === "won");
+    setHint(newGame.hint);
   }
 
   const moveSelection = (
@@ -167,6 +181,7 @@ export function Game() {
     <>
       {validMove === false && <div className="oh-no">Invalid Move</div>}
       {hintRequested && <div className="hint">{hint}</div>}
+      {won && <div className="won">Winner winner chicken dinner!</div>}
       <div
         style={{
           maxWidth: "475px",
